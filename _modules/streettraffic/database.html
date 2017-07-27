@@ -724,15 +724,16 @@
                         <span class="k">try</span><span class="p">:</span>
                             <span class="n">road_document</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nearest_road</span><span class="p">((</span><span class="n">path_item</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">path_item</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">]),</span> <span class="n">max_dist</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
                             <span class="n">road_data_id</span> <span class="o">=</span> <span class="n">road_document</span><span class="p">[</span><span class="s1">&#39;doc&#39;</span><span class="p">][</span><span class="s1">&#39;road_data_id&#39;</span><span class="p">]</span>
-                        <span class="k">except</span><span class="p">:</span>
-                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cant find nearest road once&#39;</span><span class="p">)</span>
 
-                        <span class="c1">## see if road_data_id already exists in our collection</span>
-                        <span class="k">if</span> <span class="n">road_data_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">road_id_collection</span><span class="p">:</span>
-                            <span class="n">road_id_collection</span><span class="p">[</span><span class="n">road_data_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-                            <span class="n">geojson_road_id_collection</span> <span class="o">+=</span> <span class="p">[</span><span class="n">road_data_id</span><span class="p">]</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">duplicate_road_id</span> <span class="o">+=</span> <span class="p">[</span><span class="n">road_data_id</span><span class="p">]</span>
+                            <span class="c1">## see if road_data_id already exists in our collection</span>
+                            <span class="k">if</span> <span class="n">road_data_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">road_id_collection</span><span class="p">:</span>
+                                <span class="n">road_id_collection</span><span class="p">[</span><span class="n">road_data_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                                <span class="n">geojson_road_id_collection</span> <span class="o">+=</span> <span class="p">[</span><span class="n">road_data_id</span><span class="p">]</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">duplicate_road_id</span> <span class="o">+=</span> <span class="p">[</span><span class="n">road_data_id</span><span class="p">]</span>
+                        
+                        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;get_historic_traffic&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 
             <span class="n">route_cached_insertion</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;route_cached_id&quot;</span><span class="p">:</span> <span class="n">route_cached_id</span><span class="p">,</span>

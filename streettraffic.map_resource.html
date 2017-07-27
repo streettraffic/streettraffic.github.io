@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>streettraffic.map_resource package &mdash; StreetTraffic 0.10 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="StreetTraffic 0.10 documentation" href="index.html"/>
+        <link rel="up" title="streettraffic package" href="streettraffic.html"/>
+        <link rel="prev" title="streettraffic package" href="streettraffic.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="docindex.html" class="icon icon-home"> StreetTraffic
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">StreetTraffic Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="streettraffic.html">streettraffic package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="streettraffic.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">streettraffic.map_resource package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="streettraffic.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streettraffic.html#module-streettraffic.database">streettraffic.database module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streettraffic.html#module-streettraffic.datafeed">streettraffic.datafeed module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streettraffic.html#module-streettraffic.log">streettraffic.log module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streettraffic.html#module-streettraffic.server">streettraffic.server module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streettraffic.html#module-streettraffic.tools">streettraffic.tools module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="streettraffic.html#module-streettraffic">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="docindex.html">StreetTraffic</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="docindex.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">StreetTraffic Reference</a> &raquo;</li>
+        
+          <li><a href="streettraffic.html">streettraffic package</a> &raquo;</li>
+        
+      <li>streettraffic.map_resource package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/streettraffic.map_resource.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="streettraffic-map-resource-package">
+<h1>streettraffic.map_resource package<a class="headerlink" href="#streettraffic-map-resource-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-streettraffic.map_resource.utility">
+<span id="streettraffic-map-resource-utility-module"></span><h2>streettraffic.map_resource.utility module<a class="headerlink" href="#module-streettraffic.map_resource.utility" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="streettraffic.map_resource.utility.Utility">
+<em class="property">class </em><code class="descclassname">streettraffic.map_resource.utility.</code><code class="descname">Utility</code><span class="sig-paren">(</span><em>settings: typing.Dict</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class has some utility function for map resources</p>
+<p>In order to generate Url Resources, you should get app_id and app_code at developer.HERE.com
+Specific instructions can be found here:
+<a class="reference external" href="https://developer.here.com/rest-apis/documentation/traffic/common/credentials.html">https://developer.here.com/rest-apis/documentation/traffic/common/credentials.html</a></p>
+<dl class="attribute">
+<dt id="streettraffic.map_resource.utility.Utility.app_id">
+<code class="descname">app_id</code><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.app_id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> &#8211; The app id acquired from <a class="reference external" href="https://developer.here.com/">https://developer.here.com/</a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="streettraffic.map_resource.utility.Utility.app_code">
+<code class="descname">app_code</code><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.app_code" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> &#8211; The app code acquired from <a class="reference external" href="https://developer.here.com/">https://developer.here.com/</a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="streettraffic.map_resource.utility.Utility.map_tile_base_url">
+<code class="descname">map_tile_base_url</code><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.map_tile_base_url" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> &#8211; the base url of the map image tile requests
+an exmaple can be found here: <a class="reference external" href="https://developer.here.com/api-explorer/rest/traffic/traffic-tile">https://developer.here.com/api-explorer/rest/traffic/traffic-tile</a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="streettraffic.map_resource.utility.Utility.json_tile_base_url">
+<code class="descname">json_tile_base_url</code><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.json_tile_base_url" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> &#8211; the base url of the traffic json tile requests
+an example can be found here: <a class="reference external" href="https://developer.here.com/api-explorer/rest/traffic/traffic-flow-quadkey">https://developer.here.com/api-explorer/rest/traffic/traffic-flow-quadkey</a></p>
+</dd></dl>
+
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>settings</strong> (<em>Dict</em>) &#8211; The settings of your app</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">        &#39;app_id&#39;: &#39;F8aPRXcW3MmyUvQ8Z3J9&#39;,</span>
+<span class="go">        &#39;app_code&#39; : &#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;,</span>
+<span class="go">        &#39;map_tile_base_url&#39;: &#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;,</span>
+<span class="go">        &#39;json_tile_base_url&#39;: &#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="go">    }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span> <span class="o">=</span> <span class="n">Utility</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span><span class="o">.</span><span class="n">app_id</span>
+<span class="go">&#39;F8aPRXcW3MmyUvQ8Z3J9&#39;</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="streettraffic.map_resource.utility.Utility.assemble_matrix_images">
+<code class="descname">assemble_matrix_images</code><span class="sig-paren">(</span><em>matrix: pandas.core.frame.DataFrame</em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.assemble_matrix_images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.assemble_matrix_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function load a map_tile url matrix and assemble it as a
+image matrix. Also it will print out a image for you to see.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matrix</strong> (<em>pd.DataFrame</em>) &#8211; a map_tile url matrix</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">matrix of images</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">DataFrame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="streettraffic.map_resource.utility.Utility.get_area_tile_matrix">
+<em class="property">static </em><code class="descname">get_area_tile_matrix</code><span class="sig-paren">(</span><em>list_points: typing.List</em>, <em>zoom: int</em>, <em>use_polygon: bool = False</em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_area_tile_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_area_tile_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes the coordinates from list_points and calculate their tile (col, row),
+then it generate a matrix of tiles to cover the square area spanned by those coordinates.
+If use_polygon == True, however, then we generate a polygon given by self.produce_polygon,
+and further eliminate any tiles in the matrix that are not <strong>inside</strong> of the polygon</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">###^^^^^^*####  (in this example, two coordinates are denoted as *</span>
+<span class="c1">#  ^^^^^^^   #   and this function should generate tile to cover the</span>
+<span class="c1">#  ^^^^^^^   #   area denoted by ^ and *)</span>
+<span class="c1">###*^^^^^^####</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>list_points</strong> (<em>List</em>) &#8211; list of GPS coordinates that you want to add</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level</li>
+<li><strong>use_polygon</strong> (<em>bool</em>) &#8211; If plot_polygon == True, then we generate a polygon given by self.produce_polygon,
+and further eliminate any tiles in the matrix that are not <strong>inside</strong> of the polygon</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a matrix filled with tiles number (col, row)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># or checkout the unittest for this function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example_list_points</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">33.766764</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.409533</span><span class="p">),</span> <span class="p">(</span><span class="mf">33.740003</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.368978</span><span class="p">)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="streettraffic.map_resource.utility.Utility.get_area_tile_matrix_url">
+<code class="descname">get_area_tile_matrix_url</code><span class="sig-paren">(</span><em>resource_type: str</em>, <em>list_points: typing.List</em>, <em>zoom: int</em>, <em>use_polygon=False</em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_area_tile_matrix_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_area_tile_matrix_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes the coordinates from list_points and calculate their tile (col, row),
+then it generate a matrix of tiles <strong>URLs</strong> (either map_tile urls or traffic_json urls)
+to cover the square area spanned by those coordinates.</p>
+<p>If use_polygon == True, however, then we generate a polygon given by self.produce_polygon,
+and further eliminate any tiles <strong>URLs</strong> in the matrix that are not <strong>inside</strong> of the polygon</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">###^^^^^^*####  (in this example, two coordinates are denoted as *</span>
+<span class="c1">#  ^^^^^^^   #   and this function should generate tile to cover the</span>
+<span class="c1">#  ^^^^^^^   #   area denoted by ^ and *)</span>
+<span class="c1">###*^^^^^^####</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resource_type</strong> (<em>str</em>) &#8211; what types of <em>URLs</em> do you want, it can either be
+<code class="docutils literal"><span class="pre">map_tile</span></code> or <code class="docutils literal"><span class="pre">traffic_json</span></code></li>
+<li><strong>list_points</strong> (<em>List</em>) &#8211; list of GPS coordinates that you want to add</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level</li>
+<li><strong>use_polygon</strong> (<em>bool</em>) &#8211; If plot_polygon == True, then we generate a polygon given by self.produce_polygon,
+and further eliminate any tiles in the matrix that are not <strong>inside</strong> of the polygon</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a matrix filled with tiles number (col, row)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># or checkout the unittest for this function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example_list_points</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">33.766764</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.409533</span><span class="p">),</span> <span class="p">(</span><span class="mf">33.740003</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.368978</span><span class="p">)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="streettraffic.map_resource.utility.Utility.get_distance">
+<em class="property">static </em><code class="descname">get_distance</code><span class="sig-paren">(</span><em>point1: tuple</em>, <em>point2: tuple</em>, <em>location_type: str = 'latlon'</em>, <em>distance_formula: str = 'great_circle'</em>, <em>unit: str = 'meters'</em><span class="sig-paren">)</span> &#x2192; float<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns the distance between point1 and poin2 in meters.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this function is a quick wraper for geopy.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>point1</strong> (<em>tuple</em>) &#8211; a GPS coordinates</li>
+<li><strong>point2</strong> (<em>tuple</em>) &#8211; a GPS coordinates</li>
+<li><strong>location_type</strong> (<em>str</em>) &#8211; &#8220;latlon&#8221; meaning the format is (latitude, longitude)
+for <code class="docutils literal"><span class="pre">point1</span></code> and <code class="docutils literal"><span class="pre">point2</span></code></li>
+<li><strong>distance_formula</strong> (<em>str</em>) &#8211; two options for distance formula, either
+<code class="docutils literal"><span class="pre">'great_circle'</span></code> or <code class="docutils literal"><span class="pre">'vincenty'</span></code></li>
+<li><strong>unit</strong> (<em>str</em>) &#8211; &#8220;meters&#8221;</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">distance between point1 and point2</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="streettraffic.map_resource.utility.Utility.get_map_tile_resource">
+<code class="descname">get_map_tile_resource</code><span class="sig-paren">(</span><em>location_data: tuple</em>, <em>location_type: str</em>, <em>zoom: int</em>, <em>img_size: int</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_map_tile_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_map_tile_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function generates a url to get map_tile.</p>
+<p>For map_tile resource details, refer to
+<a class="reference external" href="https://developer.here.com/rest-apis/documentation/enterprise-map-tile/topics/quick-start.html">https://developer.here.com/rest-apis/documentation/enterprise-map-tile/topics/quick-start.html</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>location_data</strong> (<em>tuple</em>) &#8211; either (latitude, longitude) or (column, row)</li>
+<li><strong>location_type</strong> (<em>str</em>) &#8211; either &#8220;latlon&#8221; or &#8220;colrow&#8221;</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level</li>
+<li><strong>img_size</strong> (<em>int</em>) &#8211; the image size. There are two options: 256 or 512</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the url for requesting a map tile resource</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># or checkout the unittest for this function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">        &#39;app_id&#39;: &#39;F8aPRXcW3MmyUvQ8Z3J9&#39;,</span>
+<span class="go">        &#39;app_code&#39; : &#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;,</span>
+<span class="go">        &#39;map_tile_base_url&#39;: &#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;,</span>
+<span class="go">        &#39;json_tile_base_url&#39;: &#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="go">    }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span> <span class="o">=</span> <span class="n">Utility</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span><span class="o">.</span><span class="n">get_map_tile_resource</span><span class="p">((</span><span class="mf">33.670156</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.325984</span><span class="p">),</span><span class="s2">&quot;latlon&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<span class="go">&#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/14/4354/6562/512/png8?app_id=F8aPRXcW3MmyUvQ8Z3J9&amp;app_code=IVp1_zoGHdLdz0GvD_Eqsw&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="streettraffic.map_resource.utility.Utility.get_quadkeys">
+<em class="property">static </em><code class="descname">get_quadkeys</code><span class="sig-paren">(</span><em>col: int</em>, <em>row: int</em>, <em>zoom: int</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_quadkeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_quadkeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to encode (col, row, zoom) as quadkey. For details, refer to
+<a class="reference external" href="https://developer.here.com/rest-apis/documentation/traffic/common/map_tile/topics/quadkeys.html">https://developer.here.com/rest-apis/documentation/traffic/common/map_tile/topics/quadkeys.html</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>col</strong> (<em>int</em>) &#8211; column</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; row</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">quadkey</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># or checkout the unittest for this function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">        &#39;app_id&#39;: &#39;F8aPRXcW3MmyUvQ8Z3J9&#39;,</span>
+<span class="go">        &#39;app_code&#39; : &#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;,</span>
+<span class="go">        &#39;map_tile_base_url&#39;: &#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;,</span>
+<span class="go">        &#39;json_tile_base_url&#39;: &#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="go">    }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span> <span class="o">=</span> <span class="n">Utility</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span><span class="o">.</span><span class="n">get_quadkeys</span><span class="p">(</span><span class="mi">35210</span><span class="p">,</span> <span class="mi">21493</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="go">&quot;1202102332221212&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="streettraffic.map_resource.utility.Utility.get_route_tile_matrix_url">
+<code class="descname">get_route_tile_matrix_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_route_tile_matrix_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_route_tile_matrix_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function load the <code class="docutils literal"><span class="pre">route_collection.json</span></code> in the your current directory
+and return a traffic_json url matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>None</strong> &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a traffic_json url matrix that we can use to crawl data</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">DataFrame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="streettraffic.map_resource.utility.Utility.get_tile">
+<em class="property">static </em><code class="descname">get_tile</code><span class="sig-paren">(</span><em>lat: float</em>, <em>lon: float</em>, <em>zoom: int</em><span class="sig-paren">)</span> &#x2192; typing.List<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_tile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_tile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a GPS coordiante and zoom level, generate column and row information for HERE API usage. For details, please
+visit <a class="reference external" href="https://developer.here.com/rest-apis/documentation/enterprise-map-tile/topics/key-concepts.html">https://developer.here.com/rest-apis/documentation/enterprise-map-tile/topics/key-concepts.html</a>
+for reference.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lat</strong> (<em>float</em>) &#8211; latitue</li>
+<li><strong>lon</strong> (<em>float</em>) &#8211; longitude</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">[col, row]</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># or checkout the unittest for this function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">        &#39;app_id&#39;: &#39;F8aPRXcW3MmyUvQ8Z3J9&#39;,</span>
+<span class="go">        &#39;app_code&#39; : &#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;,</span>
+<span class="go">        &#39;map_tile_base_url&#39;: &#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;,</span>
+<span class="go">        &#39;json_tile_base_url&#39;: &#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="go">    }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span> <span class="o">=</span> <span class="n">Utility</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span><span class="o">.</span><span class="n">get_tile</span><span class="p">(</span><span class="mf">52.525439</span><span class="p">,</span> <span class="mf">13.38727</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="go">[2200, 1343]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="streettraffic.map_resource.utility.Utility.get_traffic_json_resource">
+<code class="descname">get_traffic_json_resource</code><span class="sig-paren">(</span><em>location_data: tuple</em>, <em>location_type: str</em>, <em>zoom: int</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.get_traffic_json_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.get_traffic_json_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function generates a url to get traffic_json resource.</p>
+<p>For traffic_json resource details, refer to
+<a class="reference external" href="https://developer.here.com/rest-apis/documentation/traffic/topics/quick-start.html">https://developer.here.com/rest-apis/documentation/traffic/topics/quick-start.html</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>location_data</strong> (<em>tuple</em>) &#8211; either (latitude, longitude) or (column, row)</li>
+<li><strong>location_type</strong> (<em>str</em>) &#8211; either &#8220;latlon&#8221; or &#8220;colrow&#8221;</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the url for requesting a traffic json resource</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># or checkout the unittest for this function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">        &#39;app_id&#39;: &#39;F8aPRXcW3MmyUvQ8Z3J9&#39;,</span>
+<span class="go">        &#39;app_code&#39; : &#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;,</span>
+<span class="go">        &#39;map_tile_base_url&#39;: &#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;,</span>
+<span class="go">        &#39;json_tile_base_url&#39;: &#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="go">    }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span> <span class="o">=</span> <span class="n">Utility</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span><span class="o">.</span><span class="n">get_traffic_json_resource</span><span class="p">((</span><span class="mf">34.9237</span><span class="p">,</span> <span class="o">-</span><span class="mf">82.4383</span><span class="p">),</span> <span class="s2">&quot;latlon&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="go">&#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?app_id=F8aPRXcW3MmyUvQ8Z3J9&amp;app_code=IVp1_zoGHdLdz0GvD_Eqsw&amp;quadkey=03200303033202&amp;responseattributes=sh,fc&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="streettraffic.map_resource.utility.Utility.matrix_coverage">
+<em class="property">static </em><code class="descname">matrix_coverage</code><span class="sig-paren">(</span><em>matrix: pandas.core.frame.DataFrame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.matrix_coverage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.matrix_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate some statistical information about
+how many valid query tiles are there in your
+provided matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matrix</strong> (<em>pd.DataFrame</em>) &#8211; The JSON raw data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None, but it prints out some information
+about your matrix</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="streettraffic.map_resource.utility.Utility.produce_polygon">
+<em class="property">static </em><code class="descname">produce_polygon</code><span class="sig-paren">(</span><em>polygon_ordered_coordinates: typing.List</em>, <em>zoom: int</em>, <em>plot_polygon: bool = False</em><span class="sig-paren">)</span> &#x2192; matplotlib.path.Path<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.produce_polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.produce_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function use matplotlib.path to create a Path/polygon object. Later we can use
+this Path/polygon object to invoke Path.contains_point() method. For more details
+on contains_point(), refer to
+<a class="reference external" href="https://stackoverflow.com/questions/21328854/shapely-and-matplotlib-point-in-polygon-not-accurate-with-geolocation">https://stackoverflow.com/questions/21328854/shapely-and-matplotlib-point-in-polygon-not-accurate-with-geolocation</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>polygon_ordered_coordinates</strong> (<em>List</em>) &#8211; an ordered list of points that composes a polygon</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level</li>
+<li><strong>plot_polygon</strong> (<em>bool</em>) &#8211; If plot_polygon == True, we use matplotlib to plot the polygon</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a Path polygon</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matplotlib.path.Path</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># or checkout the unittest for this function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example_polygon_ordered_coordinates</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">25.890099</span><span class="p">,</span> <span class="o">-</span><span class="mf">80.264561</span><span class="p">],</span> <span class="p">[</span><span class="mf">25.851873</span><span class="p">,</span> <span class="o">-</span><span class="mf">80.308744</span><span class="p">],</span> <span class="p">[</span><span class="mf">25.81123</span><span class="p">,</span> <span class="o">-</span><span class="mf">80.248538</span><span class="p">],</span> <span class="p">[</span><span class="mf">25.848596</span><span class="p">,</span> <span class="o">-</span><span class="mf">80.215765</span><span class="p">]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="streettraffic.map_resource.utility.Utility.read_geojson_polygon">
+<em class="property">static </em><code class="descname">read_geojson_polygon</code><span class="sig-paren">(</span><em>geojson_polygon: str</em><span class="sig-paren">)</span> &#x2192; typing.List<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.read_geojson_polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.read_geojson_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a polygon in geojson string format,
+this function outputs a polygon list that consist of coordiantes
+that has [latitude, longitude] format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>geojson_polygon</strong> (<em>str</em>) &#8211; a polygon of geojson encoding.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list that consist of coordiantesthat has
+[latitude, longitude] format</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">List</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">checkout</span> <span class="n">the</span> <span class="n">unittest</span> <span class="k">for</span> <span class="n">this</span> <span class="n">function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">geojson_polygon</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="go">{</span>
+<span class="go">  &quot;type&quot;: &quot;FeatureCollection&quot;,</span>
+<span class="go">  &quot;features&quot;: [</span>
+<span class="go">    {</span>
+<span class="go">      &quot;type&quot;: &quot;Feature&quot;,</span>
+<span class="go">      &quot;geometry&quot;: {</span>
+<span class="go">        &quot;type&quot;: &quot;Polygon&quot;,</span>
+<span class="go">        &quot;coordinates&quot;: [</span>
+<span class="go">          [</span>
+<span class="go">            [</span>
+<span class="go">              -84.38658714294434,</span>
+<span class="go">              33.76908761144743</span>
+<span class="go">            ],</span>
+<span class="go">            [</span>
+<span class="go">              -84.37294006347656,</span>
+<span class="go">              33.766590334877485</span>
+<span class="go">            ]</span>
+<span class="go">          ]</span>
+<span class="go">        ]</span>
+<span class="go">      },</span>
+<span class="go">      &quot;properties&quot;: {}</span>
+<span class="go">    }</span>
+<span class="go">  ]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><dl class="docutils">
+<dt>&#8216;&#8217;&#8217;  # notice this should be a string</dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">        &#39;app_id&#39;: &#39;F8aPRXcW3MmyUvQ8Z3J9&#39;,</span>
+<span class="go">        &#39;app_code&#39; : &#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;,</span>
+<span class="go">        &#39;map_tile_base_url&#39;: &#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;,</span>
+<span class="go">        &#39;json_tile_base_url&#39;: &#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="go">    }</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span> <span class="o">=</span> <span class="n">Utility</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">util</span><span class="o">.</span><span class="n">read_geojson_polygon</span><span class="p">(</span><span class="n">geojson_polygon</span><span class="p">)</span>
+<span class="go">[[33.76908761144743, -84.38658714294434],</span>
+<span class="go">[33.766590334877485, -84.37294006347656]]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="streettraffic.map_resource.utility.Utility.register_route_tile">
+<code class="descname">register_route_tile</code><span class="sig-paren">(</span><em>routing_info: typing.Dict</em>, <em>zoom: int = 14</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/streettraffic/map_resource/utility.html#Utility.register_route_tile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#streettraffic.map_resource.utility.Utility.register_route_tile" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes routing_info generated by Google Direction API and
+store a <code class="docutils literal"><span class="pre">route_collection.json</span></code> in the your current directory (the directory
+that you used to run a file and call this function)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>routing_info</strong> (<em>Dict</em>) &#8211; The response document generated by Google Direction API</li>
+<li><strong>zoom</strong> (<em>int</em>) &#8211; the zoom level. Default is set to 14 because it is the
+best level for meaningful details and it is also comparitively economical.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-streettraffic.map_resource">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-streettraffic.map_resource" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="streettraffic.html" class="btn btn-neutral" title="streettraffic package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Costa Huang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

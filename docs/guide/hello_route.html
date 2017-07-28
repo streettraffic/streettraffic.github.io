@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hello World (Crawl a Route) &mdash; StreetTraffic 0.16 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="StreetTraffic 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="User’s Guide" href="index.html"/>
+        <link rel="next" title="Hello World (Crawl an Area)" href="hello_city.html"/>
+        <link rel="prev" title="Installation" href="install.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../docindex.html" class="icon icon-home"> StreetTraffic
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hello World (Crawl a Route)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello_city.html">Hello World (Crawl an Area)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/index.html">StreetTraffic Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../docindex.html">StreetTraffic</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../docindex.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">User&#8217;s Guide</a> &raquo;</li>
+        
+      <li>Hello World (Crawl a Route)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guide/hello_route.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="hello-world-crawl-a-route">
+<h1>Hello World (Crawl a Route)<a class="headerlink" href="#hello-world-crawl-a-route" title="Permalink to this headline">¶</a></h1>
+<p>Let&#8217;s let&#8217;s crawl the traffic flow data of your favorite route.</p>
+<p>Copy the following code and store it in <code class="docutils literal"><span class="pre">hello_route.py</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># hello_route.py</span>
+
+<span class="kn">from</span> <span class="nn">streettraffic.server</span> <span class="k">import</span> <span class="n">TrafficServer</span>
+<span class="kn">from</span> <span class="nn">streettraffic.predefined.cities</span> <span class="k">import</span> <span class="n">San_Francisco_polygon</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;app_id&#39;</span><span class="p">:</span> <span class="s1">&#39;F8aPRXcW3MmyUvQ8Z3J9&#39;</span><span class="p">,</span>  <span class="c1"># this is where you put your App ID from here.com</span>
+    <span class="s1">&#39;app_code&#39;</span> <span class="p">:</span> <span class="s1">&#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;</span><span class="p">,</span> <span class="c1"># this is where you put your App Code from here.com</span>
+    <span class="s1">&#39;map_tile_base_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;json_tile_base_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="p">}</span>
+
+
+<span class="c1">## initialize traffic server</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">TrafficServer</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Then run the folloing command in a console at the current directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">hello_route</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Now open <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> for our RethinkDB Web UI
+and open <a class="reference external" href="http://localhost:9000">http://localhost:9000</a> for our Web UI. Hit the
+<strong>Enter</strong> button on the main page. Now you should see the <code class="docutils literal"><span class="pre">Register</span> <span class="pre">a</span> <span class="pre">route</span></code>
+page opened like this:</p>
+<img alt="register_route" src="../_images/register_route.PNG" />
+<p>Enter the starting address and destination address. When you are finished, click
+the <strong>SELECT THEM</strong> button, it will automatically generate a <code class="docutils literal"><span class="pre">route_collection.json</span></code>
+in the folder of which you stored <code class="docutils literal"><span class="pre">hello_route.py</span></code>. You may hit button <strong>haha</strong>
+multiple times to select multiple interested route.</p>
+<p>When you are done, click the <strong>Run the crawler</strong> link on the left Menu. Then
+click <strong>RUN THE CRAWLER</strong> button. Now if you see the console, you should see .
+You may also open <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> to see reads and writes that are going on
+in your database. It looks like this:</p>
+<img alt="rethinkdb" src="../_images/rethinkdb.PNG" />
+<p>When the reads and writes are finished, you may open <a class="reference external" href="http://localhost:9000">http://localhost:9000</a> and
+open the <strong>Traffic Flow Query</strong> link on the left Menu and follow the step to query
+the same route you registered earlier.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hello_city.html" class="btn btn-neutral float-right" title="Hello World (Crawl an Area)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Costa Huang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

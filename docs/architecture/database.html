@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Database &mdash; StreetTraffic 0.16 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="StreetTraffic 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="Architecture" href="index.html"/>
+        <link rel="next" title="Communication between Back-end and Front-end" href="communication.html"/>
+        <link rel="prev" title="Architecture" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../docindex.html" class="icon icon-home"> StreetTraffic
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Architecture</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-source">Data Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-schema-part-1">Database schema (Part 1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storing-data-a-higl-level-description">Storing Data (a higl-level description)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-query-example-high-level-description">A Query Example (high-level description)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-schema-part-2">Database schema (Part 2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-query-and-analytics-a-higl-level-description">Data Query and Analytics (a higl-level description)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="communication.html">Communication between Back-end and Front-end</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/index.html">StreetTraffic Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../docindex.html">StreetTraffic</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../docindex.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Architecture</a> &raquo;</li>
+        
+      <li>Database</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/architecture/database.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="database">
+<h1>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-source">
+<h2>Data Source<a class="headerlink" href="#data-source" title="Permalink to this headline">¶</a></h2>
+<p>Before we talked about the databse schema, it would be helpful to see
+the raw data we gathered from HERE.com. A typical raw data would look
+like this: <a class="reference external" href="https://developer.here.com/api-explorer/rest/traffic/traffic-flow-proximity-shape-fc">API playground</a>
+and its corresponding documentation of the data can be found at <a class="reference external" href="https://stackoverflow.com/questions/34066427/interpreting-here-maps-real-time-traffic-tags">interpreting HERE Maps real-time traffic tags</a></p>
+</div>
+<div class="section" id="database-schema-part-1">
+<h2>Database schema (Part 1)<a class="headerlink" href="#database-schema-part-1" title="Permalink to this headline">¶</a></h2>
+<p>Don&#8217;t panic, the next section gives more details on how the data is stored and interacted.</p>
+<img alt="database_part1" src="../_images/database_part1.png" />
+</div>
+<div class="section" id="storing-data-a-higl-level-description">
+<h2>Storing Data (a higl-level description)<a class="headerlink" href="#storing-data-a-higl-level-description" title="Permalink to this headline">¶</a></h2>
+<p>Basically every time we want to crawl some traffic data, we create a matrix of
+URLs to request traffic json data from HERE.com. This matrix could represent a city or a route.
+And matrix is stored as <code class="docutils literal"><span class="pre">crawled_matrix_encoding</span></code> in the <code class="docutils literal"><span class="pre">crawled_batch</span></code> table.
+We also add a <code class="docutils literal"><span class="pre">crawled_timestamp</span></code> as a secondary key for time-related query, and
+a <code class="docutils literal"><span class="pre">crawled_batch_id</span></code> for linking documents.</p>
+<p>After we get raw data from HERE.com, we make a copy of it and store it in <code class="docutils literal"><span class="pre">original_data</span></code>
+table. Then the raw data contains the traffic flow data and many road geometries. A typical
+traffic flow data looks like this</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;CF&quot;</span><span class="p">:</span> <span class="p">[</span>    <span class="c1"># Current Flow. This element contains details about speed and Jam Factor information for the given flow item.</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;TY&quot;</span><span class="p">:</span> <span class="s2">&quot;TR&quot;</span><span class="p">,</span>  <span class="c1"># Used when it is needed to differentiate between different kinds of location types.</span>
+    <span class="s2">&quot;SP&quot;</span><span class="p">:</span> <span class="mf">29.83</span><span class="p">,</span> <span class="c1"># Speed (based on UNITS) capped by speed limit MPH</span>
+    <span class="s2">&quot;SU&quot;</span><span class="p">:</span> <span class="mf">29.83</span><span class="p">,</span> <span class="c1"># Speed (based on UNITS) not capped by speed limit</span>
+    <span class="s2">&quot;FF&quot;</span><span class="p">:</span> <span class="mf">29.83</span><span class="p">,</span> <span class="c1"># The free flow speed on this stretch of road.</span>
+    <span class="s2">&quot;JF&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>     <span class="c1"># The number between 0.0 and 10.0 indicating the expected quality of travel. When there is a road closure, the Jam Factor will be 10. As the number approaches 10.0 the quality of travel is getting worse. -1.0 indicates that a Jam Factor could not be calculated.</span>
+    <span class="s2">&quot;CN&quot;</span><span class="p">:</span> <span class="mf">0.7</span>    <span class="c1"># Confidence, an indication of how the speed was determined. -1.0 road closed. 1.0=100% 0.7-100% Historical Usually a value between .7 and 1.0.</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>and a typical geometry looks like this</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;SHP&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">{</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;41.88784,-87.62069 41.88737,-87.62068 &quot;</span>  <span class="c1"># GPS coordiantes</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;FC&quot;</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;41.88737,-87.62068 41.88692,-87.62068 &quot;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;FC&quot;</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+<p>We essentailly stored the road geometries in <code class="docutils literal"><span class="pre">road_data</span></code> table and traffic flow data in
+<code class="docutils literal"><span class="pre">flow_data</span></code> table, and link them through <code class="docutils literal"><span class="pre">flow_item_id</span></code> of <code class="docutils literal"><span class="pre">flow_item</span></code> table.</p>
+</div>
+<div class="section" id="a-query-example-high-level-description">
+<h2>A Query Example (high-level description)<a class="headerlink" href="#a-query-example-high-level-description" title="Permalink to this headline">¶</a></h2>
+<p>A typical traffic-related query would ask for the traffic flow at
+some given time range with respect to a route.</p>
+<p>Well, a route is consist of coordiantes. For each of those
+coordiantes, and we can find the nearest <code class="docutils literal"><span class="pre">road_data</span></code> document
+by using its <code class="docutils literal"><span class="pre">geometry</span></code>, a <a class="reference external" href="https://rethinkdb.com/docs/geo-support/python/">geospatial index</a>.
+Notice now we get the <code class="docutils literal"><span class="pre">flow_item_id</span></code> of the <code class="docutils literal"><span class="pre">road_data</span></code> document</p>
+<p>Then we find the related <code class="docutils literal"><span class="pre">crawled_batch_id</span></code> with respect to the given time range
+(Think of the <code class="docutils literal"><span class="pre">crawled_batch_id</span></code> as a time indicator).</p>
+<p>Finally, we can retrieve the traffic flow data at <code class="docutils literal"><span class="pre">flow_data</span></code> table by using
+<code class="docutils literal"><span class="pre">[crawled_batch_id,</span> <span class="pre">flow_item_id]</span></code> compound index.</p>
+</div>
+<div class="section" id="database-schema-part-2">
+<h2>Database schema (Part 2)<a class="headerlink" href="#database-schema-part-2" title="Permalink to this headline">¶</a></h2>
+<p>Don&#8217;t panic, the next section gives more details on how the data is stored and interacted.</p>
+<img alt="database_part2" src="../_images/database_part2.png" />
+</div>
+<div class="section" id="data-query-and-analytics-a-higl-level-description">
+<h2>Data Query and Analytics (a higl-level description)<a class="headerlink" href="#data-query-and-analytics-a-higl-level-description" title="Permalink to this headline">¶</a></h2>
+<p>It turned out that given a route, asking the nearest <code class="docutils literal"><span class="pre">road_data</span></code> document for each coordiantes
+in the route is computationally expensive. Therefore we create a <code class="docutils literal"><span class="pre">route_cached</span></code>
+table to remember all the <code class="docutils literal"><span class="pre">road_data_id</span></code> for a given route.</p>
+<p>For analytics, we were interested in the traffic pattern of the entire city,
+so we would sample some coordiantes in a given area and store the information
+in <code class="docutils literal"><span class="pre">analytics_monitored_area</span></code>.</p>
+<p>Finally, every time we crawl traffic flow data, we can update a
+<code class="docutils literal"><span class="pre">analytics_traffic_pattern</span></code> document, in which we calculate the averageJF
+(average Jamming Factor) for all the <code class="docutils literal"><span class="pre">flow_item</span></code> recorded in <code class="docutils literal"><span class="pre">analytics_monitored_area</span></code></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="communication.html" class="btn btn-neutral float-right" title="Communication between Back-end and Front-end" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Costa Huang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

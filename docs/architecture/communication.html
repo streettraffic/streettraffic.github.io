@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Communication between Back-end and Front-end &mdash; StreetTraffic 0.16 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="StreetTraffic 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="Architecture" href="index.html"/>
+        <link rel="next" title="StreetTraffic Reference" href="../modules/index.html"/>
+        <link rel="prev" title="Database" href="database.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../docindex.html" class="icon icon-home"> StreetTraffic
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Architecture</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Communication between Back-end and Front-end</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/index.html">StreetTraffic Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../docindex.html">StreetTraffic</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../docindex.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Architecture</a> &raquo;</li>
+        
+      <li>Communication between Back-end and Front-end</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/architecture/communication.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="communication-between-back-end-and-front-end">
+<h1>Communication between Back-end and Front-end<a class="headerlink" href="#communication-between-back-end-and-front-end" title="Permalink to this headline">¶</a></h1>
+<p>We used a websocket server to communicate the back-end
+and the front-end. The front end Javascript would establish a connection and
+send a message to the back-end in the following format</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">([</span><span class="s1">&#39;instruction_name&#39;</span><span class="p">,</span> <span class="n">parameters1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">parametersN</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>and the <code class="docutils literal"><span class="pre">server.py</span></code> would need to define what it should do if <code class="docutils literal"><span class="pre">message[0]</span> <span class="pre">==</span> <span class="pre">'instruction_name'</span></code></p>
+<p>For example:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>test<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    This is testing websocket connection to the server and call a function
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+        <span class="c1">// Create WebSocket connection.</span>
+        <span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s1">&#39;ws://localhost:8765&#39;</span><span class="p">);</span>
+
+        <span class="c1">// Connection opened</span>
+        <span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;connection opened&#39;</span><span class="p">)</span>
+            <span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">([</span><span class="s1">&#39;getRoadData&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">lat</span><span class="o">:</span> <span class="mf">33.760035</span><span class="p">,</span> <span class="nx">lng</span><span class="o">:</span> <span class="o">-</span><span class="mf">84.379316</span><span class="p">},</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">10</span><span class="p">]));</span>
+        <span class="p">});</span>
+
+        <span class="c1">// Listen for messages</span>
+        <span class="nx">socket</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Message from server &#39;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>And <code class="docutils literal"><span class="pre">server.py</span></code> knows what to do if the <code class="docutils literal"><span class="pre">message[0]</span> <span class="pre">==</span> <span class="pre">&quot;getRoadData&quot;</span></code>
+(in this case, <code class="docutils literal"><span class="pre">message</span> <span class="pre">=</span> <span class="pre">['getRoadData',</span> <span class="pre">{lat:</span> <span class="pre">33.760035,</span> <span class="pre">lng:</span> <span class="pre">-84.379316},</span> <span class="pre">10000,</span> <span class="pre">10]</span></code>)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">consumer_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">websocket</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+            <span class="c1"># print(&quot;received&quot;, message)</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+            <span class="o">......</span>
+
+            <span class="k">elif</span> <span class="n">message</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;getRoadData&quot;</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">get_nearest_road</span><span class="p">(</span><span class="n">location_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">message</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;lng&#39;</span><span class="p">]),</span> <span class="n">max_dist</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">distance</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;dist&#39;</span><span class="p">]</span>  <span class="c1"># did not used, maybe used later</span>
+                <span class="n">road_data_id</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;doc&#39;</span><span class="p">][</span><span class="s1">&#39;road_data_id&#39;</span><span class="p">]</span>
+                <span class="n">road_data_geojson</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">fetch_geojson_item</span><span class="p">(</span><span class="n">road_data_id</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">road_data_geojson</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sent data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and now if we open the html in the browser, we would see the following result
+if we have traffic flow data around <code class="docutils literal"><span class="pre">{lat:</span> <span class="pre">33.760035,</span> <span class="pre">lng:</span> <span class="pre">-84.379316}</span></code></p>
+<img alt="wrapper" src="../_images/wrapper.png" />
+<p>For more detailed information, please refer to the <strong>source code</strong> of
+<a class="reference internal" href="../modules/streettraffic.html#streettraffic.server.TrafficServer" title="streettraffic.server.TrafficServer"><code class="xref py py-meth docutils literal"><span class="pre">streettraffic.server.TrafficServer()</span></code></a></p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../modules/index.html" class="btn btn-neutral float-right" title="StreetTraffic Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="database.html" class="btn btn-neutral" title="Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Costa Huang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

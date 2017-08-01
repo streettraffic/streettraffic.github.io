@@ -165,6 +165,7 @@
 <span class="kn">from</span> <span class="nn">dateutil</span> <span class="k">import</span> <span class="n">parser</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">asyncio</span>
@@ -1156,6 +1157,7 @@
 <span class="sd">                &quot;analytics_monitored_area_id&quot;:  &quot;[33.880079, 33.648894, -84.485086, -84.311365]&quot; ,</span>
 <span class="sd">                &quot;analytics_traffic_pattern_id&quot;:  &quot;17e28c2e-bd09-478a-b880-767f2dc84cfa&quot; ,</span>
 <span class="sd">                &quot;average_JF&quot;: 0.09392949526813882 ,</span>
+<span class="sd">                &quot;standard_deviation_JF&quot;: 0.01632949985813882</span>
 <span class="sd">                &quot;crawled_batch_id&quot;:  &quot;25657665-b131-4ae7-bb13-7e26440cf8e0&quot; ,</span>
 <span class="sd">                &quot;crawled_timestamp&quot;: Tue Jun 27 2017 07:00:00 GMT+00:00 ,</span>
 <span class="sd">                &quot;flow_item_count&quot;: 317</span>
@@ -1185,19 +1187,25 @@
             <span class="s1">&#39;crawled_timestamp&#39;</span><span class="p">:</span> <span class="n">crawled_batch_doc</span><span class="p">[</span><span class="s1">&#39;crawled_timestamp&#39;</span><span class="p">],</span>
             <span class="s1">&#39;analytics_monitored_area_id&#39;</span><span class="p">:</span> <span class="n">analytics_monitored_area_id</span><span class="p">,</span>
             <span class="s1">&#39;average_JF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;standard_deviation_JF&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;JF_collection&#39;</span><span class="p">:</span> <span class="p">[],</span>
             <span class="s1">&#39;flow_item_count&#39;</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">flow_item_id_collection</span><span class="p">)</span>
         <span class="p">}</span>
 
         <span class="c1">## third step: start to calculate the traffic_pattern</span>
+        <span class="n">JF_collection</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">flow_item_id</span> <span class="ow">in</span> <span class="n">flow_item_id_collection</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">flow_data_JF</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;flow_data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_all</span><span class="p">([</span><span class="n">flow_item_id</span><span class="p">,</span> <span class="n">crawled_batch_id</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="s2">&quot;flow_crawled_batch&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;JF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-                <span class="n">analytics_traffic_pattern_insertion</span><span class="p">[</span><span class="s1">&#39;average_JF&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">flow_data_JF</span>
+                <span class="n">JF_collection</span> <span class="o">+=</span> <span class="p">[</span><span class="n">flow_data_JF</span><span class="p">]</span>
+                
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;insert_analytics_traffic_pattern&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-
-        <span class="n">analytics_traffic_pattern_insertion</span><span class="p">[</span><span class="s1">&#39;average_JF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analytics_traffic_pattern_insertion</span><span class="p">[</span><span class="s1">&#39;average_JF&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">analytics_traffic_pattern_insertion</span><span class="p">[</span><span class="s1">&#39;flow_item_count&#39;</span><span class="p">]</span>  <span class="c1"># get average</span>
-
+        
+        <span class="n">JF_collection_numpy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">JF_collection</span><span class="p">)</span>
+        <span class="n">analytics_traffic_pattern_insertion</span><span class="p">[</span><span class="s1">&#39;average_JF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JF_collection_numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">analytics_traffic_pattern_insertion</span><span class="p">[</span><span class="s1">&#39;standard_deviation_JF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JF_collection_numpy</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+        <span class="n">analytics_traffic_pattern_insertion</span><span class="p">[</span><span class="s1">&#39;JF_collection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">JF_collection</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">r</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;analytics_traffic_pattern&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">analytics_traffic_pattern_insertion</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="p">)</span></div>
 
 

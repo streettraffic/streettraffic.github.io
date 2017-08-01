@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setup Traffic Pattern Analytics &mdash; StreetTraffic 0.16 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="StreetTraffic 0.16 documentation" href="../index.html"/>
+        <link rel="up" title="User’s Guide" href="index.html"/>
+        <link rel="next" title="Querying Traffic Flow" href="query.html"/>
+        <link rel="prev" title="Hello World (Crawl an Area)" href="hello_city.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../docindex.html" class="icon icon-home"> StreetTraffic
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello_route.html">Hello World (Crawl a Route)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hello_city.html">Hello World (Crawl an Area)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup Traffic Pattern Analytics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-sampling">Spatial Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-traffic-pattern-monitoring-area">Setup Traffic Pattern Monitoring area</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="query.html">Querying Traffic Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/index.html">StreetTraffic Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../docindex.html">StreetTraffic</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../docindex.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">User&#8217;s Guide</a> &raquo;</li>
+        
+      <li>Setup Traffic Pattern Analytics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/guide/traffic_pattern.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="setup-traffic-pattern-analytics">
+<h1>Setup Traffic Pattern Analytics<a class="headerlink" href="#setup-traffic-pattern-analytics" title="Permalink to this headline">¶</a></h1>
+<p>You might be interested in the traffic pattern
+of a given area. StreetTraffic allows you to sample
+points/roads within a geospatial region and calculate the
+average Jamming Factor of those roads.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Jamming Factor is a measurement of traffic flow on a scale
+from 0 to 10. 10 means the road is stopped or closed, 9 means road has
+slow traffic, and 0 means free flow.</p>
+</div>
+<div class="section" id="spatial-sampling">
+<h2>Spatial Sampling<a class="headerlink" href="#spatial-sampling" title="Permalink to this headline">¶</a></h2>
+<p>Before we start, you can find the source code of this tutorial
+at <a class="reference external" href="https://raw.githubusercontent.com/streettraffic/streettraffic/develop/examples/hello_sample.py">here</a></p>
+<p>Given a polygon, you may use <a class="reference internal" href="../modules/streettraffic.html#streettraffic.database.TrafficData.spatial_sampling_points_polygon" title="streettraffic.database.TrafficData.spatial_sampling_points_polygon"><code class="xref py py-meth docutils literal"><span class="pre">streettraffic.database.TrafficData.spatial_sampling_points_polygon()</span></code></a> to generate
+spatial sampling points within a given region</p>
+<p>For example, create a file named <code class="docutils literal"><span class="pre">hello_sample.py</span></code> and copy the following code to the file to setup it up:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rethinkdb</span> <span class="k">as</span> <span class="nn">r</span>
+
+<span class="c1">## import custom module</span>
+<span class="kn">from</span> <span class="nn">streettraffic.server</span> <span class="k">import</span> <span class="n">TrafficServer</span>
+<span class="kn">from</span> <span class="nn">streettraffic.predefined.cities</span> <span class="k">import</span> <span class="n">San_Francisco_polygon</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;app_id&#39;</span><span class="p">:</span> <span class="s1">&#39;F8aPRXcW3MmyUvQ8Z3J9&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;app_code&#39;</span> <span class="p">:</span> <span class="s1">&#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;map_tile_base_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;json_tile_base_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="p">}</span>
+
+
+<span class="c1">## initialize traffic server</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">TrafficServer</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">San_Francisco_matrix</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_area_tile_matrix_url</span><span class="p">(</span><span class="s2">&quot;traffic_json&quot;</span><span class="p">,</span> <span class="n">San_Francisco_polygon</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">conn</span>
+
+
+<span class="c1"># City Polygon</span>
+<span class="n">Atlanta_polygon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">33.74775138989557</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.4464111328125</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.77144211983988</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.36058044433594</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.72548184547877</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.34684753417969</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.706062655101206</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.39800262451172</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.74775138989557</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.4464111328125</span><span class="p">]]</span>
+
+<span class="c1">## spatial sampling</span>
+<span class="n">sample_points</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">spatial_sampling_points_polygon</span><span class="p">(</span><span class="n">Atlanta_polygon</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">format_list_points_for_display</span><span class="p">(</span><span class="n">sample_points</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Now double click the <code class="docutils literal"><span class="pre">hello_sample.py</span></code> and you should see the folloiwng output in a few seconds:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">use</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">darrinward</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">lat</span><span class="o">-</span><span class="n">long</span><span class="o">/</span> <span class="k">for</span> <span class="n">plotting</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.43534851074219</span>
+<span class="mf">33.7340824257035</span><span class="p">,</span><span class="o">-</span><span class="mf">84.42428588867188</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.42428588867188</span>
+<span class="mf">33.75276227277169</span><span class="p">,</span><span class="o">-</span><span class="mf">84.42428588867188</span>
+<span class="mf">33.7247425021694</span><span class="p">,</span><span class="o">-</span><span class="mf">84.41322326660156</span>
+<span class="mf">33.7340824257035</span><span class="p">,</span><span class="o">-</span><span class="mf">84.41322326660156</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.41322326660156</span>
+<span class="mf">33.75276227277169</span><span class="p">,</span><span class="o">-</span><span class="mf">84.41322326660156</span>
+<span class="mf">33.715402578635306</span><span class="p">,</span><span class="o">-</span><span class="mf">84.40216064453125</span>
+<span class="mf">33.7247425021694</span><span class="p">,</span><span class="o">-</span><span class="mf">84.40216064453125</span>
+<span class="mf">33.7340824257035</span><span class="p">,</span><span class="o">-</span><span class="mf">84.40216064453125</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.40216064453125</span>
+<span class="mf">33.75276227277169</span><span class="p">,</span><span class="o">-</span><span class="mf">84.40216064453125</span>
+<span class="mf">33.715402578635306</span><span class="p">,</span><span class="o">-</span><span class="mf">84.39109802246094</span>
+<span class="mf">33.7247425021694</span><span class="p">,</span><span class="o">-</span><span class="mf">84.39109802246094</span>
+<span class="mf">33.7340824257035</span><span class="p">,</span><span class="o">-</span><span class="mf">84.39109802246094</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.39109802246094</span>
+<span class="mf">33.75276227277169</span><span class="p">,</span><span class="o">-</span><span class="mf">84.39109802246094</span>
+<span class="mf">33.76210219630578</span><span class="p">,</span><span class="o">-</span><span class="mf">84.39109802246094</span>
+<span class="mf">33.715402578635306</span><span class="p">,</span><span class="o">-</span><span class="mf">84.38003540039062</span>
+<span class="mf">33.7247425021694</span><span class="p">,</span><span class="o">-</span><span class="mf">84.38003540039062</span>
+<span class="mf">33.7340824257035</span><span class="p">,</span><span class="o">-</span><span class="mf">84.38003540039062</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.38003540039062</span>
+<span class="mf">33.75276227277169</span><span class="p">,</span><span class="o">-</span><span class="mf">84.38003540039062</span>
+<span class="mf">33.76210219630578</span><span class="p">,</span><span class="o">-</span><span class="mf">84.38003540039062</span>
+<span class="mf">33.7247425021694</span><span class="p">,</span><span class="o">-</span><span class="mf">84.36897277832031</span>
+<span class="mf">33.7340824257035</span><span class="p">,</span><span class="o">-</span><span class="mf">84.36897277832031</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.36897277832031</span>
+<span class="mf">33.75276227277169</span><span class="p">,</span><span class="o">-</span><span class="mf">84.36897277832031</span>
+<span class="mf">33.76210219630578</span><span class="p">,</span><span class="o">-</span><span class="mf">84.36897277832031</span>
+<span class="mf">33.7247425021694</span><span class="p">,</span><span class="o">-</span><span class="mf">84.35791015625</span>
+<span class="mf">33.7340824257035</span><span class="p">,</span><span class="o">-</span><span class="mf">84.35791015625</span>
+<span class="mf">33.74342234923759</span><span class="p">,</span><span class="o">-</span><span class="mf">84.35791015625</span>
+<span class="mf">33.75276227277169</span><span class="p">,</span><span class="o">-</span><span class="mf">84.35791015625</span>
+<span class="mf">33.76210219630578</span><span class="p">,</span><span class="o">-</span><span class="mf">84.35791015625</span>
+</pre></div>
+</div>
+<p>You may open <a class="reference external" href="https://www.darrinward.com/lat-long/">https://www.darrinward.com/lat-long/</a>, copy those coordiantes to the site
+and hit <strong>Plot Map Points</strong> button. So it should look like this:</p>
+<img alt="traffic_pattern_1" src="../_images/traffic_pattern_1.PNG" />
+</div>
+<div class="section" id="setup-traffic-pattern-monitoring-area">
+<h2>Setup Traffic Pattern Monitoring area<a class="headerlink" href="#setup-traffic-pattern-monitoring-area" title="Permalink to this headline">¶</a></h2>
+<p>Before we start, you can find the source code of this tutorial
+at <a class="reference external" href="https://raw.githubusercontent.com/streettraffic/streettraffic/develop/examples/hello_analytics.py">here</a></p>
+<p>Now you may use <a class="reference internal" href="../modules/streettraffic.html#streettraffic.database.TrafficData.set_traffic_patter_monitoring_area" title="streettraffic.database.TrafficData.set_traffic_patter_monitoring_area"><code class="xref py py-meth docutils literal"><span class="pre">streettraffic.database.TrafficData.set_traffic_patter_monitoring_area()</span></code></a> to
+generate a list of <code class="docutils literal"><span class="pre">flow_item</span></code> for monitoring traffic flow. The function calls <a class="reference internal" href="../modules/streettraffic.html#streettraffic.database.TrafficData.spatial_sampling_points_polygon" title="streettraffic.database.TrafficData.spatial_sampling_points_polygon"><code class="xref py py-meth docutils literal"><span class="pre">streettraffic.database.TrafficData.spatial_sampling_points_polygon()</span></code></a>
+to generate sampling points, and ask what is the nearest <code class="docutils literal"><span class="pre">flow_item</span></code> to those coordiantes</p>
+<p>Close the <code class="docutils literal"><span class="pre">hello_sample.py</span></code> console that you were running and create a file named <code class="docutils literal"><span class="pre">hello_analytics.py</span></code> and
+copy the following code to the file to setup it up:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rethinkdb</span> <span class="k">as</span> <span class="nn">r</span>
+
+<span class="c1">## import custom module</span>
+<span class="kn">from</span> <span class="nn">streettraffic.server</span> <span class="k">import</span> <span class="n">TrafficServer</span>
+<span class="kn">from</span> <span class="nn">streettraffic.predefined.cities</span> <span class="k">import</span> <span class="n">San_Francisco_polygon</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;app_id&#39;</span><span class="p">:</span> <span class="s1">&#39;F8aPRXcW3MmyUvQ8Z3J9&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;app_code&#39;</span> <span class="p">:</span> <span class="s1">&#39;IVp1_zoGHdLdz0GvD_Eqsw&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;map_tile_base_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://1.traffic.maps.cit.api.here.com/maptile/2.1/traffictile/newest/normal.day/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;json_tile_base_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://traffic.cit.api.here.com/traffic/6.2/flow.json?&#39;</span>
+<span class="p">}</span>
+
+
+<span class="c1">## initialize traffic server</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">TrafficServer</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">San_Francisco_matrix</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_area_tile_matrix_url</span><span class="p">(</span><span class="s2">&quot;traffic_json&quot;</span><span class="p">,</span> <span class="n">San_Francisco_polygon</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">conn</span>
+
+<span class="c1"># City Polygon. You will need to change this part. Create a</span>
+<span class="c1"># polygon for an area that you have craweld data on.</span>
+<span class="n">Atlanta_polygon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">33.74775138989557</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.4464111328125</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.77144211983988</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.36058044433594</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.72548184547877</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.34684753417969</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.706062655101206</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.39800262451172</span><span class="p">],</span> <span class="p">[</span><span class="mf">33.74775138989557</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.4464111328125</span><span class="p">]]</span>
+
+<span class="c1"># ISO formatted time string, this is the part that you need to change based</span>
+<span class="c1"># on what time you craweld your data</span>
+<span class="n">date_start</span> <span class="o">=</span> <span class="s2">&quot;2017-07-4T04:00:00.000Z&quot;</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="s2">&quot;2017-07-6T03:00:00.000Z&quot;</span>
+
+<span class="c1"># setup monitoring area</span>
+<span class="n">server</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">set_traffic_patter_monitoring_area</span><span class="p">(</span><span class="n">Atlanta_polygon</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Atlanta_polygon&#39;</span><span class="p">,</span> <span class="n">grid_point_distance</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">analytics_monitored_area_id</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;analytics_monitored_area&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="s1">&#39;Atlanta_polygon&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;description&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;analytics_monitored_area_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+
+<span class="c1"># insert traffic pattern between date</span>
+<span class="n">server</span><span class="o">.</span><span class="n">traffic_data</span><span class="o">.</span><span class="n">insert_analytics_traffic_pattern_between</span><span class="p">(</span><span class="n">date_start</span><span class="p">,</span> <span class="n">date_end</span><span class="p">,</span> <span class="n">analytics_monitored_area</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now double click <code class="docutils literal"><span class="pre">hello_analytics.py</span></code> to run the script. Open <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> and you should be seeing
+the database is having massive reads/sec. When it finished, you may query the traffic pattern at <code class="docutils literal"><span class="pre">Analytics</span> <span class="pre">--</span> <span class="pre">Traffic</span> <span class="pre">Pattern</span></code> link
+on the left menu. It will look something like this</p>
+<img alt="traffic_pattern_3" src="../_images/traffic_pattern_3.gif" />
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="query.html" class="btn btn-neutral float-right" title="Querying Traffic Flow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hello_city.html" class="btn btn-neutral" title="Hello World (Crawl an Area)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Costa Huang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.16',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

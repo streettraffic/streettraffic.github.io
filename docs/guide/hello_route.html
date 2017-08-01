@@ -97,6 +97,8 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Hello World (Crawl a Route)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hello_city.html">Hello World (Crawl an Area)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_pattern.html">Setup Traffic Pattern Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html">Querying Traffic Flow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
@@ -203,8 +205,8 @@
 <div class="section" id="hello-world-crawl-a-route">
 <h1>Hello World (Crawl a Route)<a class="headerlink" href="#hello-world-crawl-a-route" title="Permalink to this headline">¶</a></h1>
 <p>Let&#8217;s let&#8217;s crawl the traffic flow data of your favorite route.</p>
-<p>Copy the following code and store it in <code class="docutils literal"><span class="pre">hello_route.py</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># hello_route.py</span>
+<p>Create a new file <code class="docutils literal"><span class="pre">hello_world.py</span></code> and copy the following code to it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
 
 <span class="kn">from</span> <span class="nn">streettraffic.server</span> <span class="k">import</span> <span class="n">TrafficServer</span>
 <span class="kn">from</span> <span class="nn">streettraffic.predefined.cities</span> <span class="k">import</span> <span class="n">San_Francisco_polygon</span>
@@ -222,10 +224,8 @@
 <span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Then run the folloing command in a console at the current directory:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">hello_route</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
+<p>Alternatively, you may download the file at <a class="reference external" href="https://raw.githubusercontent.com/streettraffic/streettraffic/develop/examples/hello_world.py">here</a></p>
+<p>After creating/downloading the file, simply double click <code class="docutils literal"><span class="pre">hello_world.py</span></code></p>
 <p>Now open <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> for our RethinkDB Web UI
 and open <a class="reference external" href="http://localhost:9000">http://localhost:9000</a> for our Web UI. Hit the
 <strong>Enter</strong> button on the main page. Now you should see the <code class="docutils literal"><span class="pre">Register</span> <span class="pre">a</span> <span class="pre">route</span></code>
@@ -233,7 +233,7 @@ page opened like this:</p>
 <img alt="register_route" src="../_images/register_route.PNG" />
 <p>Enter the starting address and destination address. When you are finished, click
 the <strong>SELECT THEM</strong> button, it will automatically generate a <code class="docutils literal"><span class="pre">route_collection.json</span></code>
-in the folder of which you stored <code class="docutils literal"><span class="pre">hello_route.py</span></code>. You may hit button <strong>haha</strong>
+in the folder of which you stored <code class="docutils literal"><span class="pre">hello_world.py</span></code>. You may hit button <strong>TRY AGAIN</strong>
 multiple times to select multiple interested route.</p>
 <p>When you are done, click the <strong>Run the crawler</strong> link on the left Menu. Then
 click <strong>RUN THE CRAWLER</strong> button. Now if you see the console, you should see .
@@ -242,7 +242,7 @@ in your database. It looks like this:</p>
 <img alt="rethinkdb" src="../_images/rethinkdb.PNG" />
 <p>When the reads and writes are finished, you may open <a class="reference external" href="http://localhost:9000">http://localhost:9000</a> and
 open the <strong>Traffic Flow Query</strong> link on the left Menu and follow the step to query
-the same route you registered earlier.</p>
+the same route you registered earlier. See <a class="reference internal" href="query.html#query"><span class="std std-ref">Querying Traffic Flow</span></a></p>
 </div>
 
 

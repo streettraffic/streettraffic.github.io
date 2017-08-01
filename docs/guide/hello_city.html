@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="StreetTraffic 0.16 documentation" href="../index.html"/>
         <link rel="up" title="User’s Guide" href="index.html"/>
-        <link rel="next" title="Architecture" href="../architecture/index.html"/>
+        <link rel="next" title="Setup Traffic Pattern Analytics" href="traffic_pattern.html"/>
         <link rel="prev" title="Hello World (Crawl a Route)" href="hello_route.html"/> 
 
   
@@ -97,6 +97,8 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hello_route.html">Hello World (Crawl a Route)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Hello World (Crawl an Area)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic_pattern.html">Setup Traffic Pattern Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query.html">Querying Traffic Flow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
@@ -201,10 +203,10 @@
 }
 </style>
 <div class="section" id="hello-world-crawl-an-area">
-<h1>Hello World (Crawl an Area)<a class="headerlink" href="#hello-world-crawl-an-area" title="Permalink to this headline">¶</a></h1>
+<span id="hello-city"></span><h1>Hello World (Crawl an Area)<a class="headerlink" href="#hello-world-crawl-an-area" title="Permalink to this headline">¶</a></h1>
 <p>Let&#8217;s let&#8217;s crawl the traffic flow data of your favorite city.</p>
-<p>Copy the following code and store it in <code class="docutils literal"><span class="pre">hello_city.py</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># hello_city.py</span>
+<p>Create a new file <code class="docutils literal"><span class="pre">hello_world.py</span></code> and copy the following code to it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># hello_world.py</span>
 
 <span class="kn">from</span> <span class="nn">streettraffic.server</span> <span class="k">import</span> <span class="n">TrafficServer</span>
 <span class="kn">from</span> <span class="nn">streettraffic.predefined.cities</span> <span class="k">import</span> <span class="n">San_Francisco_polygon</span>
@@ -222,10 +224,8 @@
 <span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Then run the folloing command in a console at the current directory:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">hello_city</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
+<p>Alternatively, you may download the file at <a class="reference external" href="https://raw.githubusercontent.com/streettraffic/streettraffic/develop/examples/hello_world.py">here</a></p>
+<p>Then simply double click <code class="docutils literal"><span class="pre">hello_world.py</span></code></p>
 <p>Now open <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> for our RethinkDB Web UI
 and open <a class="reference external" href="http://localhost:9000">http://localhost:9000</a> for our Web UI. Hit the
 <strong>Enter</strong> button on the main page. Now go to <code class="docutils literal"><span class="pre">Quick</span> <span class="pre">Start</span> <span class="pre">--</span> <span class="pre">Register</span> <span class="pre">an</span> <span class="pre">area</span></code>
@@ -246,7 +246,7 @@ in your database. It looks like this:</p>
 <img alt="rethinkdb" src="../_images/rethinkdb.PNG" />
 <p>When the reads and writes are finished, you may open <a class="reference external" href="http://localhost:9000">http://localhost:9000</a> and
 open the <code class="docutils literal"><span class="pre">Query</span> <span class="pre">--</span> <span class="pre">Traffic</span> <span class="pre">Flow</span> <span class="pre">Query</span></code> link on the left Menu and follow the step to query
-a route within the area you just registered.</p>
+a route within the area you just registered. See <a class="reference internal" href="query.html#query"><span class="std std-ref">Querying Traffic Flow</span></a></p>
 <p>That&#8217;s it!</p>
 </div>
 
@@ -260,7 +260,7 @@ a route within the area you just registered.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../architecture/index.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="traffic_pattern.html" class="btn btn-neutral float-right" title="Setup Traffic Pattern Analytics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="hello_route.html" class="btn btn-neutral" title="Hello World (Crawl a Route)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

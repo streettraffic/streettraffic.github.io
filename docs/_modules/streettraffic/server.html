@@ -360,9 +360,8 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">traffic_matrix_list</span> <span class="o">+=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">get_area_tile_matrix_url</span><span class="p">(</span><span class="s2">&quot;traffic_json&quot;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="s1">&#39;polygon&#39;</span><span class="p">],</span> <span class="mi">14</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">traffic_matrix_list</span><span class="p">)</span></div></div>
-        <span class="c1">#self.loop.call_soon_threadsafe(self.loop.create_task, self.main_crawler())</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">call_soon_threadsafe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_crawler</span><span class="p">())</span></div></div>
 
 
 <div class="viewcode-block" id="NonRootHTTPRequestHandler"><a class="viewcode-back" href="../../modules/streettraffic.html#streettraffic.server.NonRootHTTPRequestHandler">[docs]</a><span class="k">class</span> <span class="nc">NonRootHTTPRequestHandler</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">SimpleHTTPRequestHandler</span><span class="p">):</span>
